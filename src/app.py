@@ -38,6 +38,48 @@ activities = {
         "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
+    },
+    "Skiing": {
+        "description": "Cross-country and downhill skiing activities",
+        "schedule": "Saturdays, 10:00 AM - 12:00 PM",
+        "max_participants": 15,
+        "participants": []
+    },
+    "Ice Hockey": {
+        "description": "Team ice hockey practice and matches",
+        "schedule": "Wednesdays, 4:00 PM - 6:00 PM",
+        "max_participants": 20,
+        "participants": []
+    },
+    "Figure Skating": {
+        "description": "Figure skating lessons and performances",
+        "schedule": "Fridays, 5:30 PM - 7:00 PM",
+        "max_participants": 10,
+        "participants": []
+    },
+    "Snowboarding": {
+        "description": "Snowboarding basics and freestyle sessions",
+        "schedule": "Sundays, 1:00 PM - 3:00 PM",
+        "max_participants": 12,
+        "participants": []
+    },
+    "Curling": {
+        "description": "Learn and play the sport of curling",
+        "schedule": "Tuesdays, 6:00 PM - 7:30 PM",
+        "max_participants": 16,
+        "participants": []
+    },
+    "Trainspotting": {
+        "description": "Observe and record passing trains at local stations",
+        "schedule": "Saturdays, 2:00 PM - 4:00 PM",
+        "max_participants": 8,
+        "participants": []
+    },
+    "Solitaire": {
+        "description": "Play the classic solo card game",
+        "schedule": "Anytime",
+        "max_participants": 1,
+        "participants": []
     }
 }
 
@@ -62,6 +104,13 @@ def signup_for_activity(activity_name: str, email: str):
     # Get the specific activity
     activity = activities[activity_name]
 
+    # Check if student is already signed up
+    if email in activity["participants"]:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Student with email {email} is already signed up for this activity"
+        )
+    
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
