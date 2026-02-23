@@ -1,3 +1,36 @@
+/* Participants section styling */
+.participants-section {
+  background: #e3f2fd;
+  border-radius: 6px;
+  padding: 12px 16px 10px 16px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  box-shadow: 0 1px 3px rgba(30, 136, 229, 0.07);
+}
+
+.participants-section h5 {
+  margin: 0 0 8px 0;
+  color: #1976d2;
+  font-size: 1.08em;
+  letter-spacing: 0.5px;
+}
+
+.participants-list {
+  list-style: disc inside;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.participant-item {
+  margin-bottom: 3px;
+  color: #333;
+  font-size: 1em;
+}
+
+.no-participants {
+  color: #888;
+  font-style: italic;
+}
 * {
   box-sizing: border-box;
   margin: 0;
